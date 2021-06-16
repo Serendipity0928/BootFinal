@@ -7,9 +7,21 @@ import org.springframework.stereotype.Repository;
 //@Repository
 @Mapper
 public interface ReportInfoDao {
+    /**
+     * 根据主键查询记录，可废弃
+     * @param id
+     * @return
+     */
     ReportInfo selectByPrimaryKey(long id);
 
+    /**
+     * 可能会废弃掉
+     * @param record
+     * @return
+     */
     int insertReportInfo(ReportInfo record);
+
+
 
 }
 
