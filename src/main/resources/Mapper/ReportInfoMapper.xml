@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.spl.serendipity928.Dao.ReportInfoDao" >
+    <resultMap id="BaseResultMap" type="com.spl.serendipity928.Pojo.ReportInfo" >
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="studentID" property="studentID" />
+        <result column="email" property="email" />
+        <result column="cookies" property="cookies" />
+        <result column="cookies_expired" property="cookiesExpired" />
+        <result column="stime" property="stime" />
+        <result column="etime" property="etime" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, name, studentID, email, cookies, cookies_expired, stime, etime
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+        select
+        <include refid="Base_Column_List" />
+        from scheduled_report_info
+        where id = #{id}
+    </select>
+
+    <insert id="insertReportInfo" parameterType="com.spl.serendipity928.Pojo.ReportInfo" >
+        insert into scheduled_report_info
+        (<include refid="Base_Column_List" />)
+        values
+        (null, #{name}, #{studentID}, #{email}, #{cookies}, #{cookiesExpired}, #{stime}, #{etime})
+    </insert>
+
+
+</mapper>
