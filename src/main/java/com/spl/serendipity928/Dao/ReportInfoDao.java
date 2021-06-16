@@ -21,7 +21,12 @@ public interface ReportInfoDao {
      */
     int insertReportInfo(ReportInfo record);
 
-
+    /**
+     * 更新数据接口
+     * @param record
+     * @return
+     */
+    int updateReportInfo(ReportInfo record);
 
 }
 

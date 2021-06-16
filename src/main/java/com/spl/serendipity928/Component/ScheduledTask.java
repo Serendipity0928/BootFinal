@@ -44,7 +44,7 @@ public class ScheduledTask {
         System.out.println(result);
     }
 
-    @Scheduled(cron = "0 00 22,23 ? * * ")
+    @Scheduled(cron = "0 05 17 ? * * ")
     public void Only4Email() {
         System.out.println("发送邮件...");
         String text = "<!doctype html>\n" +

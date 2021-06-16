@@ -8,3 +8,15 @@ scp filepath root@ip:~/
 nohup java -jar xxx.jar &
 ```
 
+
+
+
+
+### Date
+
+https://www.cnblogs.com/zhangxiaoxia/p/9987340.html  
+
+```java
+	
+```
+
