@@ -1,14 +1,15 @@
 package com.spl.serendipity928;
 
-import com.spl.serendipity928.Component.EmailService;
+import com.spl.serendipity928.Utils.EmailService;
 import com.spl.serendipity928.Dao.ReportInfoDao;
 import com.spl.serendipity928.Pojo.ReportInfo;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
-@RestController
+@Controller
 public class HelloController {
 
     @Resource
@@ -17,17 +18,14 @@ public class HelloController {
     @Resource
     private ReportInfoDao reportInfoDao;
 
-    @RequestMapping("/school/report")
+    @RequestMapping("/index")
     public String hello() {
 //        emailService.sendMail("878478652@qq.com", "主题", "内容");
-        String ret = "";
-        ReportInfo reportInfo = reportInfoDao.selectByPrimaryKey(0L);
-        if(reportInfo == null) return "没有查询到数据，id=0L";
-//        System.out.println(reportInfo.toString());
-        return reportInfo.toString();
+        return "index";
     }
 
     @RequestMapping("/select")
+    @ResponseBody
     public String selectCall() {
         ReportInfo reportInfo = reportInfoDao.selectByPrimaryKey(0L);
         if(reportInfo == null) return "没有查询到数据，id=0L";
@@ -36,6 +34,7 @@ public class HelloController {
     }
 
     @RequestMapping("/insert")
+    @ResponseBody
     public String insertCall() {
         ReportInfo reportInfo = new ReportInfo();
         reportInfo.setName("孙培林").setStudentID("SY1906412").setEmail("878478652@qq.com")
