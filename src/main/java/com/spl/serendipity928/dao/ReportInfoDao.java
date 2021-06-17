@@ -1,8 +1,7 @@
-package com.spl.serendipity928.Dao;
+package com.spl.serendipity928.dao;
 
-import com.spl.serendipity928.Pojo.ReportInfo;
+import com.spl.serendipity928.pojo.ReportInfo;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Repository;
 
 //@Repository
 @Mapper

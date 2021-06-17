@@ -1,4 +1,4 @@
-package com.spl.serendipity928.Utils;
+package com.spl.serendipity928.util;
 
 import java.io.*;
 import java.net.HttpURLConnection;

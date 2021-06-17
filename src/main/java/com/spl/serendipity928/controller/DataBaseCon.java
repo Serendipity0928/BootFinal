@@ -1,13 +1,12 @@
-package com.spl.serendipity928.Controller;
+package com.spl.serendipity928.controller;
 
-import com.spl.serendipity928.Dao.ReportInfoDao;
-import com.spl.serendipity928.Pojo.ReportInfo;
+import com.spl.serendipity928.dao.ReportInfoDao;
+import com.spl.serendipity928.pojo.ReportInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.Date;
 
 @Slf4j
 @RestController

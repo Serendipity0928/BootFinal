@@ -1,9 +1,9 @@
-package com.spl.serendipity928.Component;
+package com.spl.serendipity928.service;
 
 import com.alibaba.fastjson.JSON;
-import com.spl.serendipity928.Pojo.ReportMessage;
-import com.spl.serendipity928.Utils.EmailService;
-import com.spl.serendipity928.Utils.HttpClient;
+import com.spl.serendipity928.pojo.ReportMessage;
+import com.spl.serendipity928.util.EmailClient;
+import com.spl.serendipity928.util.HttpClient;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +22,7 @@ public class ScheduledTask {
             "&gwdz=&is_move=0&move_reason=&move_remark=&realname=孙培林&number=SY1906412&uid=376685&created=1623661268&date=20210614&created_uid=300068&id=2994284&gwszdd=";
 
     @Resource
-    private EmailService emailService;
+    private EmailClient emailClient;
 
     // 每天下午 17:01 执行
     @Scheduled(cron = "0 01 17 ? * * ")
@@ -36,7 +36,7 @@ public class ScheduledTask {
         if(reportMessage == null || (reportMessage.getE() != 0 && reportMessage.getE() != 1)) {
             // 打卡失败, 发送邮箱  https://segmentfault.com/a/1190000021587834
             System.out.println("scheduledTask is failed!, result="+result);
-            emailService.sendMail("878478652@qq.com", "自动打卡失败邮件通知",
+            emailClient.sendMail("878478652@qq.com", "自动打卡失败邮件通知",
                     "系统自动打开失败，失败原因已反馈，请立即手动打卡; 接口反馈信息：" + result, false);
             return;
         }
@@ -98,7 +98,7 @@ public class ScheduledTask {
                 "</body>\n" +
                 "</html>";
         text = text.replace("${date}", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        emailService.sendMail("526570971@qq.com", "专属邮件-Bigger Sister", text, true);
+        emailClient.sendMail("526570971@qq.com", "专属邮件-Bigger Sister", text, true);
     }
 
 }

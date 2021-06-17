@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.spl.serendipity928.Dao.ReportInfoDao" >
-    <resultMap id="BaseResultMap" type="com.spl.serendipity928.Pojo.ReportInfo" >
+<mapper namespace="com.spl.serendipity928.dao.ReportInfoDao" >
+    <resultMap id="BaseResultMap" type="com.spl.serendipity928.pojo.ReportInfo" >
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="studentID" property="studentID" />
@@ -23,14 +23,14 @@
         where id = #{id}
     </select>
 
-    <insert id="insertReportInfo" parameterType="com.spl.serendipity928.Pojo.ReportInfo" >
+    <insert id="insertReportInfo" parameterType="com.spl.serendipity928.pojo.ReportInfo" >
         insert into scheduled_report_info
         (<include refid="Base_Column_List" />)
         values
         (null, #{name}, #{studentID}, #{email}, #{cookies}, #{cookiesExpired}, #{stime}, #{etime})
     </insert>
 
-    <update id="updateReportInfo" parameterType="com.spl.serendipity928.Pojo.ReportInfo">
+    <update id="updateReportInfo" parameterType="com.spl.serendipity928.pojo.ReportInfo">
         update scheduled_report_info
         set `name`=#{name}, `email`=#{email}, `cookies`=#{cookies}, `cookies_expired`=#{cookiesExpired}, `stime`=#{stime}, `etime`=#{etime}
         where `studentID`=#{studentID}

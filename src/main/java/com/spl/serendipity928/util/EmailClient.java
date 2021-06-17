@@ -1,8 +1,7 @@
-package com.spl.serendipity928.Utils;
+package com.spl.serendipity928.util;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
@@ -13,7 +12,7 @@ import javax.mail.internet.MimeMessage;
 
 @Slf4j
 @Component
-public class EmailService {
+public class EmailClient {
 
     @Resource
     private JavaMailSender javaMailSender;
