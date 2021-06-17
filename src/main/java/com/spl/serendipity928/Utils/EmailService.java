@@ -36,7 +36,7 @@ public class EmailService {
 
         try {
             messageHelper = new MimeMessageHelper(message, true);
-            messageHelper.setFrom(from);
+            messageHelper.setFrom("幸福快乐小哥哥<"+ from +">");
             messageHelper.setTo(to);
             messageHelper.setSubject(subject);
             messageHelper.setText(text, html);
