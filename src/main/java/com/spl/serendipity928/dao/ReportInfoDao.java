@@ -3,6 +3,8 @@ package com.spl.serendipity928.dao;
 import com.spl.serendipity928.pojo.ReportInfo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 //@Repository
 @Mapper
 public interface ReportInfoDao {
@@ -26,6 +28,13 @@ public interface ReportInfoDao {
      * @return
      */
     int updateReportInfo(ReportInfo record);
+
+    /**
+     * 查询需要打卡信息
+     * @param curTime
+     * @return
+     */
+    List<ReportInfo> filterReportInfoList(long curTime);
 
 }
 

@@ -36,5 +36,12 @@
         where `studentID`=#{studentID}
     </update>
 
+    <!-- 这里只能使用第一个索引，范围查询除非你使用了覆盖索引 -->
+    <select id="filterReportInfoList" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select  <include refid="Base_Column_List" />
+        from scheduled_report_info
+        where etime > #{curTime} and #{curTime} > stime
+    </select>
+
 
 </mapper>

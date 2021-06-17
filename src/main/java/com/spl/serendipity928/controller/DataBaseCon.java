@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -50,5 +51,22 @@ public class DataBaseCon {
         int ret = reportInfoDao.updateReportInfo(reportInfo);
         if(ret == 0) return "没有找到对应的学生ID";
         else return "更新成功";
+    }
+
+    @RequestMapping("/db/reportInfo/filter")
+    public String reportInfoFilter() {
+        StringBuffer ret = new StringBuffer();
+        long curTime = System.currentTimeMillis();
+        List<ReportInfo> reportInfoList = reportInfoDao.filterReportInfoList(curTime);
+        reportInfoList.forEach(reportInfo -> {
+            ret.append("学生姓名：").append(reportInfo.name);
+            if(reportInfo.cookiesExpired < curTime) {
+                ret.append(", but cookies is expired\n");
+            }else {
+                ret.append(", 即将打卡~~\n");
+            }
+        });
+        log.info(ret.toString());
+        return ret.toString();
     }
 }
