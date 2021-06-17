@@ -1,9 +1,12 @@
 package com.spl.serendipity928.util;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+@Slf4j
 public class HttpClient {
 
     /**
@@ -59,13 +62,14 @@ public class HttpClient {
             while ((str = br.readLine()) != null){
                 result += str;
             }
-            System.out.println(result);
+
             //关闭流
             is.close();
             //断开连接，disconnect是在底层tcp socket链接空闲时才切断，如果正在被其他线程使用就不切断。
             conn.disconnect();
-            return result;
 
+            log.info("调用接口：{}，返回结果：{}", pathUrl, result);
+            return result;
         } catch (Exception e) {
             e.printStackTrace();
         }finally {

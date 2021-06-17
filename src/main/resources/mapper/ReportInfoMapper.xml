@@ -40,7 +40,7 @@
     <select id="filterReportInfoList" parameterType="java.lang.Long" resultMap="BaseResultMap">
         select  <include refid="Base_Column_List" />
         from scheduled_report_info
-        where etime > #{curTime} and #{curTime} > stime
+        where etime > #{curTime} and #{curTime} > stime and cookies_expired > #{curTime}
     </select>
 
 
