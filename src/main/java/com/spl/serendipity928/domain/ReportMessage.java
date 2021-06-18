@@ -1,4 +1,4 @@
-package com.spl.serendipity928.pojo;
+package com.spl.serendipity928.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
