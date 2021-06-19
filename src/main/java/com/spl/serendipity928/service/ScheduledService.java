@@ -28,7 +28,7 @@ public class ScheduledService {
     private EmailClient emailClient;
 
     // 每天下午 17:01 执行
-    @Scheduled(cron = "0 27 00 ? * * ")
+    @Scheduled(cron = "0 01 17 ? * * ")
     public void studentReport() {
         log.info("任务执行时间：{}.", LocalDateTime.now());
 
