@@ -45,8 +45,8 @@ public class DataBaseCon {
     public String reportInfoUpdate() {
         ReportInfo reportInfo = new ReportInfo();
         reportInfo.setName("孙培林").setStudentID("SY1906412").setEmail("878478652@qq.com")
-                .setCookies("eai-sess=epcdg6rc9dgbm5lt2v2gjr3j11").setCookiesExpired(1624982400000L)
-                .setStime(1623860919322L).setEtime(1624982400000L);
+                .setCookies("eai-sess=epcdg6rc9dgbm5lt2v2gjr3j11").setCookiesExpired(1628001918091L)
+                .setStime(1625409918091L).setEtime(1628001918091L);
 
         int ret = reportInfoDao.updateReportInfo(reportInfo);
         if(ret == 0) return "没有找到对应的学生ID";
