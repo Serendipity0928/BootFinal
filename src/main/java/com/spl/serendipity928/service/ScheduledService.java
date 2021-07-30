@@ -54,7 +54,7 @@ public class ScheduledService {
         });
     }
 
-    @Scheduled(cron = "0 05 17 ? * * ")
+//    @Scheduled(cron = "0 05 17 ? * * ")
     public void Only4Email() {
         log.info("ScheduledTask, 发送专属邮件...");
 
